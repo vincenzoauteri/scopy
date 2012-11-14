@@ -2,12 +2,18 @@ import os
 from google.appengine.ext import db
 from users import User
 import webapp2
+import re
+import cgi
 from security import *
 import jinja2
 
 jinja_env = jinja2.Environment(
         autoescape=True, loader = jinja2.FileSystemLoader(
             os.path.join(os.path.dirname(__file__), 'templates')))
+
+USER_RE = re.compile(r"^[a-zA-Z0-9_-]{3,20}$")
+PASSWORD_RE = re.compile(r"^.{3,20}$")
+EMAIL_RE = re.compile(r"^[\S]+@[\S]+\.[\S]+$")
 
 #General 
 def render_str(template, **params):

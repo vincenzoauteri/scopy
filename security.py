@@ -1,6 +1,7 @@
 import random
 import hashlib
 from secret import SECRET
+import string
 
 def make_salt(length):
     """Function returning a random ascii sequence to be used as salt"""
