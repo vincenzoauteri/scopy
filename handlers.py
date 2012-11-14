@@ -30,6 +30,7 @@ class Handler(webapp2.RequestHandler):
 
     def render_str(self, template, **params):
         """Utility function that can add new stuff to parameters passed"""
+        params['style']='cerulean'
         if self.user : 
           params['welcome']='%s' % self.user.username
           params['logout']='Logout'
