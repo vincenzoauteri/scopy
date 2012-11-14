@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="warning">Signup for Scopy !</div> 
+    <div class="warning">{{error_username}}</div> 
+    <div class="warning">{{error_password}}</div> 
+
+
+    <form class="navbar-form pull-left" method="post">
+        <label>Username</label>
+        <input type="text" class="span2" name="username" value={{last_username}}>
+
+        <label>Password</label>
+        <input type="password" name="password" class="span2">
+
+        <label>Verify</label>
+        <input type="password" name="verify" class="span2">
+        <br/><br/> 
+        <button type="submit" class="btn-primary btn-large">Sign up</button> 
+    </form>
+</div>
+{% endblock %}

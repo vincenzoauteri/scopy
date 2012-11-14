@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <label class="warning">{{ error }}</label>    
+    <br>
+    <div class="warning">Please enter your e-mail and password</div> 
+    <br>
+
+    <form class="navbar-form pull-left" method="post">
+        <label>Username</label><br\>
+        <input type="text" class="span2" name="username" value={{last_username}}>
+        <br/> 
+        <label>Password</label>
+        <input type="" name="password" class="span2">
+        <br/><br/> 
+        <button type="submit" class="btn-primary btn-large">Login</button> 
+    </form>
+</div>
+{% endblock %}
