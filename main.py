@@ -27,18 +27,6 @@ from google.appengine.ext import db
 
 
 
-        
-
-
-
-#signup part
-
-
-
-
-
-
-
 app = webapp2.WSGIApplication([
     ('/', FrontPageHandler),
     ('/login', LoginHandler),
