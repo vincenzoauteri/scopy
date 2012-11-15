@@ -1,0 +1,37 @@
+{% extends "public-base.html" %}
+{% block content %}
+
+{% macro show_member(name, pic, location='', statement='') -%}   
+
+<li class="span4">
+  <div class="thumbnail">
+    <img src="/static/images/{{pic}}.jpg" style="padding:10px;" class="img-polaroid" alt>
+    <div class="caption">
+      <div class="pagination-centered" > <h4> {{name}} </h4> </div>
+      <div> Location: {{location}} </div>
+      <p> {{statment}} </p>
+    </div>
+  </div>
+</li>
+
+{%- endmacro %}
+
+
+<div class="container">
+  <div class="row">
+
+    <h2>Meet The Team</h2>
+    <ul class="thumbnails">
+      {{ show_member('Joe Wandy', 'JoeWandy', 'Glasgow, United  Kingdom') }}
+      {{ show_member('Luc Jonveaux', 'LucJonveaux', 'Paris, France ') }}
+      {{ show_member('Vincenzo Auteri', 'VincenzoAuteri', 'Madrid, Spain') }}
+      {{ show_member('Christopher Tay', 'ChristopherTay', 'Singapore') }}
+      {{ show_member('Cathy Tao', 'CathyTao', 'United States') }}
+      {{ show_member('Behrouz Saghafi', 'BehrouzSaghafi', 'Singapore') }}
+      {{ show_member('David Crofts', 'David Crofts', 'United States') }}    
+    </ul>
+  
+  </div>
+</div>
+  
+{% endblock %}

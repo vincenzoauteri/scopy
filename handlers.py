@@ -240,6 +240,15 @@ class LogoutHandler(Handler):
 
 
 
+class AboutUsHandler(Handler):
+    """Rendering for the page on about us"""
+
+    def render_front(self, entries={}):
+        self.render('about.html')
+
+    def get(self):
+        self.render_front()
+
 
 class FrontPageHandler(Handler):
     """Class used to render the main page of the site"""
@@ -251,3 +260,6 @@ class FrontPageHandler(Handler):
     def get(self):
         """Function called when the front page is requested"""
         self.render_front()
+
+
+

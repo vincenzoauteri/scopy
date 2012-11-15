@@ -32,5 +32,6 @@ app = webapp2.WSGIApplication([
     ('/login', LoginHandler),
     ('/logout', LogoutHandler),
     ('/signup', SignupHandler),
-    ('/profile', ProfileHandler)],
+    ('/profile', ProfileHandler),
+    ('/about', AboutUsHandler)],
     debug=True)
