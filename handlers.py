@@ -249,7 +249,6 @@ class AboutUsHandler(Handler):
     def get(self):
         self.render_front()
 
-
 class FrontPageHandler(Handler):
     """Class used to render the main page of the site"""
 

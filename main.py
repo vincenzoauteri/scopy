@@ -21,7 +21,7 @@ import string
 from users import User
 from handlers import *
 from security import *
-
+import mockup_handlers as Mockup
 
 from google.appengine.ext import db
 
@@ -33,5 +33,9 @@ app = webapp2.WSGIApplication([
     ('/logout', LogoutHandler),
     ('/signup', SignupHandler),
     ('/profile', ProfileHandler),
+    ('/mockup-profile', Mockup.ProfileHandler),
+    ('/mockup-history', Mockup.HistoryHandler),
+    ('/mockup-insurance', Mockup.InsuranceHandler),
+    ('/mockup-dashboard', Mockup.DashboardHandler),
     ('/about', AboutUsHandler)],
     debug=True)

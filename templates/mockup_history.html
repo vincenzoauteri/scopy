@@ -1,0 +1,56 @@
+{% extends "mockup_base.html" %}
+{% block content %}
+
+<div class="container">
+
+  <div class="tabbable">
+    <ul class="nav nav-tabs" id="historyTabs">
+      <li><a href="#CurrentDiagnosis" data-toggle="tab"> Current Diagnosis </a> </li>
+      <li><a href="#Appointments" data-toggle="tab"> Upcoming Appointments </a> </li>
+      <li><a href="#Providers" data-toggle="tab"> Health Care Providers </a> </li>
+      <li><a href="#Results" data-toggle="tab"> Test Results </a> </li>
+      <li><a href="#Medication" data-toggle="tab"> Medication </a> </li>
+      <li><a href="#Allergies" data-toggle="tab"> Allergies & Immunizations </a> </li>
+    </ul>
+
+    <div class="tab-content"">
+
+      <div class="tab-pane" id="CurrentDiagnosis">
+	<p> Diagnosis stuff here </p>
+      </div>
+
+      <div class="tab-pane" id="Appointments">
+	<p>  List of appointments </p>
+      </div>
+
+      <div class="tab-pane" id="Providers">
+	<p> List of health care providers </p>
+      </div>
+
+      <div class="tab-pane" id="Results">
+	<p> Previous test results  </p>
+      </div>
+
+      <div class="tab-pane" id="Medication">
+	<p> Types of medication taken  </p>
+      </div>
+
+      <div class="tab-pane" id="Allergies">
+	<p> List of related allergies </p>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}
+
+
+{% block jsscript %}
+<script>
+  $(function(){
+    $('#historyTabs a:first').tab('show');
+  })
+</script>
+{% endblock %}

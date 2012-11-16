@@ -1,0 +1,40 @@
+{% extends "mockup_base.html" %}
+{% block content %}
+
+<div class="container">
+
+  <div class="tabbable">
+    <ul class="nav nav-tabs" id="insuranceTabs">
+      <li><a href="#Records" data-toggle="tab"> Insurance Records </a> </li>
+      <li><a href="#Contacts" data-toggle="tab"> Emergency Contacts </a> </li>
+      <li><a href="#Dict" data-toggle="tab"> Health Dictionary </a> </li>
+    </ul>
+
+    <div class="tab-content">
+
+      <div class="tab-pane" id="Records">
+	<p> Insurance Records  </p>
+      </div>
+
+      <div class="tab-pane" id="Contacts">
+	<p> List of emergency contacts + CRUD  </p>
+      </div>
+
+      <div class="tab-pane" id="Dict">
+	<p> Simple search bar here </p>
+      </div>
+
+
+    </div>
+  </div>
+
+</div>
+{% endblock %}
+
+{% block jsscript %}
+<script>
+  $(function(){
+    $('#insuranceTabs a:first').tab('show');
+  })
+</script>
+{% endblock %}
