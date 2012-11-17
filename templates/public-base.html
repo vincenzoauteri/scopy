@@ -23,47 +23,50 @@
 
   <body>
     <!-- Navbar -->
-    <div class="navbar navbar-inverse navbar-fixed-top">
+	 <div class="row-fluid" >
+    <div class="navbar navbar-inverse">
       <div class="navbar-inner">
-	<div class="container" >
-	  <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-	    <span class="icon-bar"></span>
-	    <span class="icon-bar"></span>
-	    <span class="icon-bar"></span>
-	  </a>
-	  <a class="brand" href="/">Scopy</a>
-	  <div class="nav-collapse">
-	    <ul class="nav pull-right">
-	      <li><a href="/">Home</a></li>
-	      <li><a href="/about">About Us</a></li>
-	      <li class="divider-vertical"></li>
-	      <li class="dropdown">
-		<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ welcome }} <b class="caret"></b></a>
-		<ul class="dropdown-menu">
-		  <li><a href="/logout">{{ logout }}</a></li>
-		  <li><a href="/login">{{ login }}</a></li>
-		  <li><a href="/signup">{{ signup}}</a></li>
-		</ul>
-	      </li>
-	    </ul>
-	  </div><!-- /.nav-collapse -->
-	</div>
+
+	      <div class="container-fluid" >
+          
+	        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+	          <span class="icon-bar"></span>
+	          <span class="icon-bar"></span>
+	          <span class="icon-bar"></span>
+	        </a>
+
+	        <a class="brand" href="/">Scopy</a>
+	        <div class="nav-collapse">
+	          <ul class="nav pull-right">
+	            <li><a href="/">Home</a></li>
+	            <li><a href="/about">About Us</a></li>
+	            <li class="divider-vertical"></li>
+	            <li class="dropdown">
+	            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ welcome }} <b class="caret"></b></a>
+	            <ul class="dropdown-menu">
+	              <li><a href="/logout">{{ logout }}</a></li>
+	      	      <li><a href="/login">{{ login }}</a></li>
+	      	      <li><a href="/signup">{{ signup}}</a></li>
+	      	    </ul>
+	          </ul>
+	        </div><!-- /.nav-collapse -->
+        </div> <!-- /.container-fluid-->
       </div><!-- /navbar-inner -->
+    </div><!-- /navbar -->
     </div><!-- /navbar -->
     {% block content %}
     {% endblock %}
-    <br><br><br><br>
 
     <!-- Footer
 	 ================================================== -->
     <footer class="footer">
-      <div class="container"> <hr>
-        <p>
-	  &copy; Scopy. All rights reserved. &middot; 
-	  <a href="#">Blog</a>
-	</p>
-	<p class="pull-right"><a href="#">Back to top</a></p>
-      </div>  
+      <div class="container-fluid"> 
+	      &copy; Scopy. All rights reserved. &middot; 
+	     <a href="#">Blog</a>
+      <span class="pull-right">
+          <a href="#">Back to top</a>
+      </span>  
+     </div>
     </footer>
     <!-- Le javascript
 	 ================================================== -->

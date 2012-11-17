@@ -181,12 +181,12 @@ class LoginHandler(Handler):
 
     def show_form(self, 
             error, 
-            last_username):
+            last_email):
         """Utility function to render the login form"""
 
         self.render("login.html", 
                 error=error, 
-                last_username=last_username)
+                last_email=last_email)
 
     def get(self):
         """Function called upon loading login page"""
@@ -198,18 +198,18 @@ class LoginHandler(Handler):
         error = ""
         error_email = ""
 
-        entered_username = cgi.escape(self.request.get("username"))
+        entered_email= cgi.escape(self.request.get("email"))
         entered_password =  cgi.escape(self.request.get("password"))
 
-        if not entered_username or not entered_password:
-            error = "Please enter Username and password"
+        if not entered_email or not entered_password:
+            error = "Please enter your sign-up E-mail and password"
             self.show_form(error, 
-                    entered_username)
+                    entered_email)
             return
             
 
-        query = db.GqlQuery("select * from User where username = :1",
-                entered_username) 
+        query = db.GqlQuery("select * from User where email = :1",
+                entered_email) 
 
         user = query.get()
         if  user :
@@ -217,14 +217,14 @@ class LoginHandler(Handler):
             generated_hash = make_hashed_password(entered_password,
                     stored_hash.split('|')[0]) 
             if stored_hash != generated_hash :
-                error = "Username or password not valid"
+                error = "E-mail or password not valid"
         else:
-                error = "Username or password not valid"
+                error = "E-mail or password not valid"
 
 
         if (error):
             self.show_form(error, 
-                    entered_username)
+                    entered_email)
         else:
             self.set_secure_cookie('user_id',str(user.key().id()))
             self.redirect("/profile")
@@ -259,6 +259,7 @@ class FrontPageHandler(Handler):
     def get(self):
         """Function called when the front page is requested"""
         self.render_front()
+
 
 
 

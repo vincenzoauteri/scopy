@@ -1,13 +1,13 @@
-{% extends "base.html" %}
+{% extends "public-base.html" %}
 {% block content %}
 
 <div class="container">
     <div class="lead text-warning">{{ error }}</div>    
         <fieldset>
             <legend>Sign in</legend>
-            <label>Please enter your e-mail and password.</label>
+            <label>Please enter your E-mail and password.</label>
             <form class="navbar-form pull-left" method="post">
-                <input type="text" class="span2" name="username" placeholder="E-mail address">
+                <input type="text" class="span2" name="email" placeholder="E-mail address">
                 <br/> 
                 <input type="password" name="password" class="span2" placeholder="Password">
                 <br/><br/> 

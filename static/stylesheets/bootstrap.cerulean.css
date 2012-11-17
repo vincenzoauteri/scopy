@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Telex);
+   @import url(https://fonts.googleapis.com/css?family=Telex);
 /*!
  * Bootstrap v2.2.1
  *
@@ -3494,7 +3494,7 @@ input[type="submit"].btn.btn-mini {
 }
 .navbar {
   overflow: visible;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   color: #f5f5f5;
   *position: relative;
   *z-index: 2;
@@ -5284,4 +5284,63 @@ i[class^="icon-"] {
 .affix {
   position: fixed;
 }
+.front{
+  
+  background: url("../images/woman_yoga.png");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+}
+
+.text-over-opaque{
+  text-shadow: 0 1px 0 rgba(255,255, 255, 0.75);
+  color: #55555;
+}
+
+.header-over-opaque{
+  text-shadow: 0 1px 0 rgba(0,0, 0, 0.75);
+  color: #034482;
+}
+
+.left-column{
+    margin-top: 15%;
+}
+.right-column{
+    margin-top: 1%;
+}
+.bottom{
+    margin-top: 70%;
+}
+
+.text-over-image-clear{
+  text-shadow: 0 1px 0 rgba(200,200, 200, 0.75);
+    color: #FFFFFF;
+}
+
+.large-text {
+  font-size: 80px;
+  padding-bottom: 30px;
+  padding-bottom: 30px;
+}
+
+.text-over-image-clear{
+  text-shadow: 0 1px 0 rgba(255,255, 255, 0.75);
+  color: #034482;
+}
+
+
+
+.simple-box {            
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  background-color: white;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#FFFFFF), to(#FFFFFF));
+  background-image: -webkit-linear-gradient(to bottom, #FFFFFF, #DDDDDD);
+  background-image: -o-linear-gradient(to bottom, #FFFFFF, #DDDDDD);
+  background-image: -moz-linear-gradient(to bottom, #FFFFFF, #DDDDDD);
+  background-image: linear-gradient(to bottom, #FFFFFF, #000000);
+  background: rgb(54, 25, 25); /* Fall-back for browsers that don't support rgba */
+  background: rgba(255, 255, 255, .5);
+  }
 
