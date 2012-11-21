@@ -1,19 +1,19 @@
 import os 
 from google.appengine.ext import db
 from users import User
+from users import NewsletterSubscriber
 import webapp2
 import re
 import cgi
 from security import *
 import jinja2
+import logging
+from mail import *
 
 jinja_env = jinja2.Environment(
         autoescape=True, loader = jinja2.FileSystemLoader(
             os.path.join(os.path.dirname(__file__), 'templates')))
 
-USER_RE = re.compile(r"^[a-zA-Z0-9_-]{3,20}$")
-PASSWORD_RE = re.compile(r"^.{3,20}$")
-EMAIL_RE = re.compile(r"^[\S]+@[\S]+\.[\S]+$")
 
 #General 
 def render_str(template, **params):
@@ -54,6 +54,7 @@ class Handler(webapp2.RequestHandler):
     def read_secure_cookie(self, name):
         """Check if requesting browser sent us a cookie"""
         hashed_cookie = self.request.cookies.get(name)
+        logging.error("Cookie name %s hash %s" % (name,hashed_cookie)) 
         if hashed_cookie :
             return verify_cookie_hash(hashed_cookie)
         else:
@@ -88,17 +89,6 @@ class SignupHandler(Handler):
         """Function called unpon loading signup page"""
         self.show_form("", "", "", "", "")
 
-    def verify_username(self, entered_username):
-        """Function that checks username against defined regexp"""
-        return USER_RE.match(entered_username)
-
-    def verify_password(self, entered_password):
-        """Function that checks passwordagainst defined regexp"""
-        return PASSWORD_RE.match(entered_password)
-
-    def verify_email(self, entered_email):
-        """Function that checks email against defined regexp"""
-        return EMAIL_RE.match(entered_email)
 
     def post(self):
         """Function that gets called when form is submitted"""
@@ -110,7 +100,7 @@ class SignupHandler(Handler):
 
         if cgi.escape(self.request.get("username")) == "" :
             error_username = "Please enter username" 
-        elif self.verify_username(entered_username) == None:
+        elif verify_username(entered_username) == None:
             error_username = "Username not valid" 
         else :
             query= db.GqlQuery("select * from User where username = :1",
@@ -132,7 +122,7 @@ class SignupHandler(Handler):
 
 
         entered_email = cgi.escape(self.request.get("email"))
-        if entered_email and self.verify_email(entered_email) == None:
+        if entered_email and verify_email(entered_email) == None:
             error_email = "Email not valid" 
 
         if (error_username != "" or error_password !="" or error_email!=""):
@@ -260,6 +250,40 @@ class FrontPageHandler(Handler):
         """Function called when the front page is requested"""
         self.render_front()
 
+    def post(self):
+        entered_email= cgi.escape(self.request.get("email"))
+        logging.error("Entered email %s" % entered_email)
+        #Check for valid address
+        error=""
 
+        if not entered_email or not verify_email(entered_email):
+            error = "Please enter a valid e-mail"
+        query = db.GqlQuery("select * from NewsletterSubscriber where email = :1",
+                entered_email) 
 
+        #Check if e-mail is already in database
+        newsletter_subscriber = query.get()
+        if  newsletter_subscriber:
+            error = "You are already registered for receiving updates. Thanks for your interest!"
+        else:
+            new_subscriber = NewsletterSubscriber(email=entered_email)
+            new_subscriber.put()
 
+        #For the moment we disable error checking
+        if False:
+        #if error!="":
+           self.redirect('/')
+        else:
+           send_email('thankyou.txt',entered_email)
+           self.redirect('/thankyou')
+
+class ThankyouHandler(Handler):
+    """Class used to render the thankyou page after subscribing to the newsletter"""
+
+    def render_front(self, entries={}):
+        """utility function used to render the html"""
+        self.render('thankyou.html')
+
+    def get(self):
+        """Function called when thankyou page is requested"""
+        self.render_front()
