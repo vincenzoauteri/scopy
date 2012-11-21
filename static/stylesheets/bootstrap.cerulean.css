@@ -5292,13 +5292,21 @@ i[class^="icon-"] {
 }
 
 .text-over-opaque{
-  text-shadow: 0 1px 0 rgba(255,255, 255, 0.75);
-  color: #55555;
+  text-align:left;
+  color: #F7F7F7;
+  letter-spacing: 2px;
+  margin-left:5px;
+  margin-right:5px;
+}
+.text-centered{
+  text-align:center;
 }
 
 .header-over-opaque{
-  text-shadow: 0 1px 0 rgba(0,0, 0, 0.75);
-  color: #034482;
+  letter-spacing: 1px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-shadow: 0 1px 0 rgba(255,255, 255, .5);
+  color: #3fb4f7;
 }
 
 .left-column{
@@ -5308,7 +5316,7 @@ i[class^="icon-"] {
     margin-top: 1%;
 }
 .bottom{
-    margin-top: 70%;
+    margin-top: 5%;
 }
 
 .text-over-image-clear{
@@ -5317,6 +5325,7 @@ i[class^="icon-"] {
 }
 
 .large-text {
+  text-color: rgba(0, 0, 0, .7);
   font-size: 80px;
   padding-bottom: 30px;
   padding-bottom: 30px;
@@ -5324,7 +5333,7 @@ i[class^="icon-"] {
 
 .text-over-image-clear{
   text-shadow: 0 1px 0 rgba(255,255, 255, 0.75);
-  color: #034482;
+  color: #111111;
 }
 
 
@@ -5334,13 +5343,21 @@ i[class^="icon-"] {
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
   border-bottom-left-radius: 4px;
-  background-color: white;
+  font-size:17px;
+  margin-left:10px;
+  margin-right:10px;
+  background-color: black;
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#FFFFFF), to(#FFFFFF));
   background-image: -webkit-linear-gradient(to bottom, #FFFFFF, #DDDDDD);
   background-image: -o-linear-gradient(to bottom, #FFFFFF, #DDDDDD);
   background-image: -moz-linear-gradient(to bottom, #FFFFFF, #DDDDDD);
   background-image: linear-gradient(to bottom, #FFFFFF, #000000);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#111111), to(#333333));
+  background-image: -webkit-linear-gradient(to bottom, #111111, #333333);
+  background-image: -o-linear-gradient(to bottom, #111111, #333333);
+  background-image: -moz-linear-gradient(to bottom, #111111, #333333);
+  background-image: linear-gradient(to bottom, #111111, #333333);
   background: rgb(54, 25, 25); /* Fall-back for browsers that don't support rgba */
-  background: rgba(255, 255, 255, .5);
+  background: rgba(0, 0, 0, .7);
   }
 
