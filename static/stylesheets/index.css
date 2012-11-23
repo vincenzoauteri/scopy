@@ -91,3 +91,12 @@
 }
 
 .simple-box li { margin-top: 0.6em; }
+
+.float-right {
+  float:right;
+  width:150px;
+}
+.float-left{
+  float:left;
+  width:150px;
+}
