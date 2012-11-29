@@ -1,81 +1,144 @@
 <!DOCTYPE html>
-<html lang="en">
+    <!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+    <!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+    <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+    <!--[if (gte IE 9)|!(IE)]><!--><html class="not-ie" lang="en"> <!--<![endif]-->
+    <head>
+        
+        {% block head %}
+        
+	    <!-- Basic meta tags -->
+	    <meta charset="utf-8">
+	    <title>Scopy {% block title %}{% endblock %}</title>
+	    <meta name="description" content="Plain is a responsible HTML template with 12-column grid based on popular Twitter Bootstrap framework. This theme is suitable as a clean and easily maintainable template for any business, portfolio or single-project site, with support for mobile devices and latest HTML5 &amp; CSS3 user interface components.">
 
-  <head>
-    <meta charset="utf-8">
-    <title>Scopy</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
+	    <!-- Styles -->
+        <link rel="stylesheet" type="text/css" media="screen" href="static/stylesheets/bootstrap/bootstrap.css"> 
+        <!-- link rel="stylesheet" type="text/css" media="screen" href="static/stylesheets/bootstrap/bootstrap.{{ style }}.css" --> 
+        <link rel="stylesheet" type="text/css" media="screen" href="static/stylesheets/bootstrap/bootstrap-responsive.css"> 
+        <link rel="stylesheet" type="text/css" media="screen" href="static/stylesheets/bootstrap-override.css"> 
+        <link rel="stylesheet" type="text/css" media="screen" href="static/stylesheets/font-awesome/font-awesome.css"> 
+        <link rel="stylesheet" type="text/css" media="screen" href="static/stylesheets/style.css"> 
+	    <!--[if IE 7]>
+		    <link href="static/stylesheets/font-awesome/font-awesome-ie7.css" rel="stylesheet">
+	    <![endif]-->
+	
+	    <!-- Web Fonts  -->
+	    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css'>
 
-    <!-- Le styles -->
-    <link rel="stylesheet" type="text/css" media="screen" href="static/stylesheets/bootstrap.{{ style }}.css"> 
-    <link rel="stylesheet" type="text/css" media="screen" href="static/stylesheets/bootstrap-responsive.css"> 
-    <link rel="stylesheet" type="text/css" media="screen" href="static/stylesheets/font-awesome.css"> 
-    <link rel="stylesheet" type="text/css" media="screen" href="static/stylesheets/docs.css"> 
+	    <!-- Javascript -->
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	    <script>window.jQuery || document.write('<script src="js/jquery-1.7.2.min.js"><\/script>')</script>
+	
+	    <!-- Internet Explorer condition - HTML5 shim, for IE6-8 support of HTML5 elements -->
+	    <!--[if lt IE 9]>
+		    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	    <![endif]-->
 
-  </head>
+        {% endblock %}
 
-  <body>
-    <!-- Navbar -->
-	 <div class="row-fluid" >
-    <div class="navbar navbar-inverse" style="margin-bottom: 0px;">
-      <div class="navbar-inner">
+    </head>
 
-	      <div class="container-fluid" >
-          
-	        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-	          <span class="icon-bar"></span>
-	          <span class="icon-bar"></span>
-	          <span class="icon-bar"></span>
-	        </a>
+    <body>
+    
+	<!-- Header
+	================================================== -->
+	<header id="header">
 
-	        <a class="brand" href="/">Scopy</a>
-	        <div class="nav-collapse">
-	          <ul class="nav pull-right">
-	            <li><a href="/">Home</a></li>
-	            <li><a href="/about">About Us</a></li>
-	            <li class="divider-vertical"></li>
-	            <li class="dropdown">
-	            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ welcome }} <b class="caret"></b></a>
-	            <ul class="dropdown-menu">
-	              <li><a href="/logout">{{ logout }}</a></li>
-	      	      <li><a href="/login">{{ login }}</a></li>
-	      	      <li><a href="/signup">{{ signup}}</a></li>
-	      	    </ul>
-	          </ul>
-	        </div><!-- /.nav-collapse -->
-        </div> <!-- /.container-fluid-->
-      </div><!-- /navbar-inner -->
-    </div><!-- /navbar -->
-    </div><!-- /navbar -->
+		<!-- Navigation
+		================================================== -->
+		<nav class="navbar">
+			<div class="navbar-inner">
+				<div class="container">
+					<!-- Logo -->
+					<a class="brand" href="/">
+						<img src="static/images/logo_comp.jpg" alt="logo" height="60" />
+					</a>
+					<ul class="nav">
+					    <!-- note: can use class="active" to select active links -->
+						<li><a href="/" title="Home">Home</a></li>
+						<li><a href="/about" title="The Scopy Team">About</a></li>
+						<li class="dropdown">
+							<a href="components.html" title="Login">Login</a>
+							<!-- Dropdown menu -->
+							<ul>
+								<li><a href="/login" title="">Login</a></li>
+								<li><a href="/signup" title="">Sign Up</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div><!-- end .container -->
+			</div><!-- end .navbar-inner -->
+		</nav>
+
+	</header>
+    
+	<!-- Content
+	================================================== -->    
     {% block content %}
     {% endblock %}
 
-    <!-- Footer
-	 ================================================== -->
-    <footer class="footer">
-      <div class="container-fluid"> 
-	      &copy; Scopy. All rights reserved. &middot; 
-	     <a href="#">Blog</a>
-      <span class="pull-right">
-          <a href="#">Back to top</a>
-      </span>  
-     </div>
-    </footer>
-    <!-- Le javascript
-	 ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
+	<!-- Footer
+	================================================== -->
+
+	<footer id="footer">
+		<div class="container">
+			<div class="row">
+				<div class="span4">
+					<a class="brand" href="index.html">
+						Scopy
+					</a>
+					<p>
+						Your personal health monitor
+					</p>
+				</div>
+				<div class="span4 social-networks">
+					<h3>Like Us ?</h3>
+                    <div class="row-fuid">
+                    <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.scopy-me.com%2F&amp;send=false&amp;layout=button_count&amp;width=150&amp;show_faces=false&amp;action=recommend&amp;colorscheme=dark&amp;font=tahoma&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://scopy-me.com" data-hashtags="scopy">Tweet</a>
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>  
+                    </div>					
+				</div>
+				<div class="span4 newsletter">
+					<h3>Follow us</h3>
+					<p>Leave your email address here and you'd be the first to know about Scopy when it's ready!</p>
+					<img class="ajax-loader" src="img/ajax-loader.gif" alt="" />
+					<form method="post" id="newsletter-form">
+                        <input type="text" name="email" placeholder="Enter your E-mail" />
+                        <button type="submit" class="button green">Submit</button>	
+					</form>
+				</div> 
+			</div> <!-- end .row -->		
+		</div> <!-- end .container -->
+	</footer><!-- end #footer -->
+
+	<footer id="copyright">
+		<div class="container">
+			<div class="row">
+				<div class="span4">
+					&copy; Scopy. All rights reserved. <a>Blog</a>
+				</div>
+				<div class="span4">
+					<a href="#" title="Send us email">admin@scopy-me.com</a>, 
+				</div>
+			</div> <!-- end .row -->		
+		</div> <!-- end .container -->
+	</footer><!-- end #footer-extra -->
+
+	<!-- Javascript - Placed at the end of the document so the pages load faster 
+	================================================== -->
+
     <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <!-- script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script -->
     <script src="static/javascripts/bootstrap.min.js"></script>
     <script src="static/javascripts/application.js"></script>
     <script src="static/javascripts/bootswatch.js"></script>	
+    <script src="static/javascripts/jquery.isotope.min.js"></script>	
+    <script src="static/javascripts/jquery.touchSwipe.js"></script>	
+    <script src="static/javascripts/jquery.hotkeys.min.js" charset='utf-8'></script>	
+    <script src="static/javascripts/functions.js"></script>	
 
-  </body>
+    </body>
 </html>
