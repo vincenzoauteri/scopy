@@ -43,6 +43,16 @@
 
     <body>
     
+    <!-- Facebook stuffs -->
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+    
 	<!-- Header
 	================================================== -->
 	<header id="header">
@@ -105,8 +115,7 @@
 				<div class="span4 newsletter">
 					<h3>Follow us</h3>
 					<p>Leave your email address here and you'd be the first to know about Scopy when it's ready!</p>
-					<img class="ajax-loader" src="img/ajax-loader.gif" alt="" />
-					<form method="post" id="newsletter-form">
+					<form method="post">
                         <input type="text" name="email" placeholder="Enter your E-mail" />
                         <button type="submit" class="button green">Submit</button>	
 					</form>
@@ -119,7 +128,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="span4">
-					&copy; Scopy. All rights reserved. <a>Blog</a>
+					&copy; Scopy. All rights reserved. <a href="http://blog.scopy-me.com">Blog</a>
 				</div>
 				<div class="span4">
 					<a href="#" title="Send us email">admin@scopy-me.com</a>, 

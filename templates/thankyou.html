@@ -1,9 +1,12 @@
 {% extends "public-base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" type="text/css" media="screen" href="static/stylesheets/index.css">     
+{% endblock %}
 {% block content %}
 
-<link rel="stylesheet" type="text/css" media="screen" href="static/stylesheets/index.css"> 
-
-<div class="row-fluid front">
+<div class="row-fluid">
   <div class="span12">
       </br></br>
 	  <div class="row-fluid">
@@ -11,12 +14,12 @@
 	    <section id="about">
 	      <!-- Headings & Paragraph Copy -->
 	      <div class="row-fluid">
-		<div class="span8 offset2 pagination-centered simple-box">        
-                  <h3 class="header-over-opaque">
+		<div class="span12 offset2 pagination-centered">        
+                  <h3 class="header">
                     Thank you for your interest in Scopy.
                   </h3>
 
-		  <div class="text-over-opaque">
+		  <div class="text">
                     <p class="text-centered lead">
                     We'll keep you updated on the development of Scopy.
                     </p>
