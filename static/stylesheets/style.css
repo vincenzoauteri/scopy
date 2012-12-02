@@ -31,6 +31,9 @@ body {
 body {
 	background: url(../images/background.png) 0 90px repeat-x #fff;
 }
+body.index {
+	background: url(../images/SP-Home.jpg) 0 90px repeat-x #fff;
+}
 @media (max-width: 979px) and (min-width: 768px) {
 	body {
 		background: url(../images/background.png) 0 120px repeat-x #fff;
