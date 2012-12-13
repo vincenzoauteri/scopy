@@ -33,6 +33,7 @@ app = webapp2.WSGIApplication([
     ('/logout', LogoutHandler),
     ('/signup', SignupHandler),
     ('/profile', ProfileHandler),
+    ('/preview', PreviewHandler),
     ('/thankyou', ThankyouHandler),
     ('/mockup-profile', Mockup.ProfileHandler),
     ('/mockup-history', Mockup.HistoryHandler),

@@ -89,10 +89,6 @@ class SignupHandler(Handler):
         """Function called unpon loading signup page"""
         self.show_form("", "", "", "", "")
 
-
-    def verify_password(self, entered_password):
-        return True
-
     def post(self):
         """Function that gets called when form is submitted"""
         error_username = ""
@@ -118,8 +114,6 @@ class SignupHandler(Handler):
             error_password = "Please enter password" 
         elif entered_verify == "":
             error_password = "Please enter a matching password" 
-        elif self.verify_password(entered_password) == None:
-            error_password = "Password not valid" 
         elif entered_password != entered_verify :
             error_password = "Passwords do not match" 
 
@@ -165,8 +159,16 @@ class ProfileHandler(Handler):
         else :
             self.redirect("/login")
 
+class PreviewHandler(Handler):
+    """Class for handling preview page"""
 
-
+    def get(self):
+        """Function to show preview page"""
+        user_cookie = self.request.cookies.get("user_id", "")
+        if user_cookie and verify_cookie_hash(user_cookie):
+            self.render("preview.html")
+        else :
+            self.redirect("/login")
 
 #login
 class LoginHandler(Handler):
