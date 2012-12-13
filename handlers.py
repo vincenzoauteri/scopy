@@ -90,6 +90,9 @@ class SignupHandler(Handler):
         self.show_form("", "", "", "", "")
 
 
+    def verify_password(self, entered_password):
+        return True
+
     def post(self):
         """Function that gets called when form is submitted"""
         error_username = ""

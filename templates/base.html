@@ -1,114 +1,195 @@
 <!DOCTYPE html>
-<html lang="en">
+    <!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+    <!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+    <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+    <!--[if (gte IE 9)|!(IE)]><!--><html class="not-ie" lang="en"> <!--<![endif]-->
+    <head>
+        
+        {% block head %}
+        
+	    <!-- Basic meta tags -->
+	    <meta charset="utf-8">
+	    <title>Scopy {% block title %}{% endblock %}</title>
+	    <meta name="description" content="Scopy is a platform to record, analyze and share your personal health data.">
 
-  <head>
-    <meta charset="utf-8">
-    <title>Scopy</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
+	    <!-- Styles -->
+        <link rel="stylesheet" type="text/css" media="screen" href="static/stylesheets/bootstrap/bootstrap.css"> 
+        <!-- link rel="stylesheet" type="text/css" media="screen" href="static/stylesheets/bootstrap/bootstrap.{{ style }}.css" --> 
+        <link rel="stylesheet" type="text/css" media="screen" href="static/stylesheets/bootstrap/bootstrap-responsive.css"> 
+        <link rel="stylesheet" type="text/css" media="screen" href="static/stylesheets/bootstrap-override.css"> 
+        <link rel="stylesheet" type="text/css" media="screen" href="static/stylesheets/font-awesome/font-awesome.css"> 
+        <link rel="stylesheet" type="text/css" media="screen" href="static/stylesheets/style.css"> 
+	    <!--[if IE 7]>
+		    <link href="static/stylesheets/font-awesome/font-awesome-ie7.css" rel="stylesheet">
+	    <![endif]-->
+	
+	    <!-- Web Fonts  -->
+	    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css'>
 
-    <!-- Le styles -->
-    <link rel="stylesheet" type="text/css" media="screen" href="static/stylesheets/bootstrap.{{ style }}.css"> 
-    <link rel="stylesheet" type="text/css" media="screen" href="static/stylesheets/bootstrap-responsive.css"> 
-    <link rel="stylesheet" type="text/css" media="screen" href="static/stylesheets/font-awesome.css"> 
-    <link rel="stylesheet" type="text/css" media="screen" href="static/stylesheets/docs.css"> 
+	    <!-- Javascript -->
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	    <script>window.jQuery || document.write('<script src="js/jquery-1.7.2.min.js"><\/script>')</script>
+	
+	    <!-- Internet Explorer condition - HTML5 shim, for IE6-8 support of HTML5 elements -->
+	    <!--[if lt IE 9]>
+		    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	    <![endif]-->
 
-  </head>
+        {% endblock %}
 
-   <body>
-    <!-- Navbar -->
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-	<div class="container-fluid">
-	  <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-	    <span class="icon-bar"></span>
-	    <span class="icon-bar"></span>
-	    <span class="icon-bar"></span>
-	  </a>
-	  <a class="brand" href="#">MENU</a>
-	  <div class="nav-collapse">
-	    <ul class="nav">
-	      <li class="active"><a href="#">Home</a></li>
-	      <li><a href="#">Profile</a></li>
-	      <li class="dropdown">
-		<a href="#" class="dropdown-toggle" data-toggle="dropdown">Medical History <b class="caret"></b></a>
-		<ul class="dropdown-menu">
-		  <li><a href="#">Current Diagnosis</a></li>
-		  <li><a href="#">Upcoming Appointments</a></li>
-		  <li><a href="#">Health Care Providers</a></li>
-		  <li class="divider"></li>
-		  <li><a href="#">Test Results</a></li>
-		  <li><a href="#">Prescription Medication</a></li>
-		  <li><a href="#">Health Supplements</a></li>
-		  <li><a href="#">Allergies & Immunizations</a></li>
-		</ul>
-	      </li>
-	      <li class="dropdown">
-		<a href="#" class="dropdown-toggle" data-toggle="dropdown">Ambitious Stuffs <b class="caret"></b></a>
-		<ul class="dropdown-menu">
-		  <li><a href="#">Health Expenses & Insurance Records</a></li>
-		  <li><a href="#">Emergency Contact</a></li>
-		  <li><a href="#">Health Dictionary</a></li>
-		  <li class="divider"></li>
-		  <li><a href="#">Scopy Health Search Engine </a></li>
-		  <li><a href="#">Scopy Global</a></li>
-		  <li><a href="#">Scopy Add-On Doctor Supervised Modules</a></li>
-		</ul>
-	      </li>
-	      <li class="dropdown">
-		<a href="#" class="dropdown-toggle" data-toggle="dropdown">About Us <b class="caret"></b></a>
-		<ul class="dropdown-menu">
-		  <li><a href="#">The Team</a></li>
-		  <li><a href="#">Our Mission</a></li>
-		  <li><a href="#">What We Do</a></li>
-		  <li class="divider"></li>
-		  <li><a href="#">Join Us</a></li>
-		</ul>
-	      </li>
-	    </ul>
-	    <ul class="nav pull-right">
-	      <li><a href="#">Help</a></li>
-	      <li class="divider-vertical"></li>
-	      <li class="dropdown">
-		<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ welcome }} <b class="caret"></b></a>
-		<ul class="dropdown-menu">
-		  <li><a href="/logout">{{ logout }}</a></li>
-		  <li><a href="/login">{{ login }}</a></li>
-		  <li><a href="/signup">{{ signup}}</a></li>
-		</ul>
-	      </li>
-	    </ul>
-	  </div><!-- /.nav-collapse -->
-	</div>
-      </div><!-- /navbar-inner -->
+    </head>
+
+    <body class="{% block bodyclass %}{% endblock %}">
+    
+    <!-- Facebook stuffs -->
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+    
+	<!-- Header
+	================================================== -->
+	<header id="header">
+
+		<!-- Navigation
+		================================================== -->
+		<nav class="navbar">		
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </a>
+                <a class="brand" href="#">MENU</a>
+                <div class="nav-collapse">
+                <ul class="nav">
+                  <li class="active"><a href="#">Home</a></li>
+                  <li><a href="#">Profile</a></li>
+                  <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Medical History <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Current Diagnosis</a></li>
+                  <li><a href="#">Upcoming Appointments</a></li>
+                  <li><a href="#">Health Care Providers</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Test Results</a></li>
+                  <li><a href="#">Prescription Medication</a></li>
+                  <li><a href="#">Health Supplements</a></li>
+                  <li><a href="#">Allergies & Immunizations</a></li>
+                </ul>
+                  </li>
+                  <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ambitious Stuffs <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Health Expenses & Insurance Records</a></li>
+                  <li><a href="#">Emergency Contact</a></li>
+                  <li><a href="#">Health Dictionary</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Scopy Health Search Engine </a></li>
+                  <li><a href="#">Scopy Global</a></li>
+                  <li><a href="#">Scopy Add-On Doctor Supervised Modules</a></li>
+                </ul>
+                  </li>
+                  <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">About Us <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">The Team</a></li>
+                  <li><a href="#">Our Mission</a></li>
+                  <li><a href="#">What We Do</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Join Us</a></li>
+                </ul>
+                  </li>
+                </ul>
+                <ul class="nav pull-right">
+                  <li><a href="#">Help</a></li>
+                  <li class="divider-vertical"></li>
+                  <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ welcome }} <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/logout">{{ logout }}</a></li>
+                  <li><a href="/login">{{ login }}</a></li>
+                  <li><a href="/signup">{{ signup}}</a></li>
+                </ul>
+                  </li>
+                </ul>
+                </div><!-- /.nav-collapse -->
+                </div>
+            </div><!-- /navbar-inner -->
     </div><!-- /navbar -->
+
+	</header>
+    
+	<!-- Content
+	================================================== -->    
     {% block content %}
     {% endblock %}
-    <!-- Footer
-	 ================================================== -->
-    <footer class="footer">
-      <div class="container-fluid"> <hr>
-        <p>
-	  &copy; Scopy. All rights reserved. &middot; 
-	  <a href="#">Blog</a>
-	</p>
-	<p class="pull-right"><a href="#">Back to top</a></p>
-      </div>
-    </footer>
-    <!-- Le javascript
-	 ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
+
+	<!-- Footer
+	================================================== -->
+
+	<footer id="footer">
+		<div class="container">
+			<div class="row">
+				<div class="span4">
+					<a class="brand" href="index.html">
+						Scopy
+					</a>
+					<p>
+						Your personal health monitor
+					</p>
+				</div>
+				<div class="span4 social-networks">
+					<h3>Like Us ?</h3>
+                    <div class="row-fuid">
+                    <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.scopy-me.com%2F&amp;send=false&amp;layout=button_count&amp;width=150&amp;show_faces=false&amp;action=recommend&amp;colorscheme=dark&amp;font=tahoma&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://scopy-me.com" data-hashtags="scopy">Tweet</a>
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>  
+                    </div>					
+				</div>
+				<div class="span4 newsletter">
+					<h3>Follow us</h3>
+					<p>Leave your email address here and you'd be the first to know about Scopy when it's ready!</p>
+					<form method="post">
+                        <input type="text" name="email" placeholder="Enter your E-mail" />
+                        <button type="submit" class="button green">Submit</button>	
+					</form>
+				</div> 
+			</div> <!-- end .row -->		
+		</div> <!-- end .container -->
+	</footer><!-- end #footer -->
+
+	<footer id="copyright">
+		<div class="container">
+			<div class="row">
+				<div class="span4">
+					&copy; Scopy. All rights reserved. <a href="http://blog.scopy-me.com">Blog</a>
+				</div>
+				<div class="span4">
+					<a href="#" title="Send us email">admin@scopy-me.com</a>, 
+				</div>
+			</div> <!-- end .row -->		
+		</div> <!-- end .container -->
+	</footer><!-- end #footer-extra -->
+
+	<!-- Javascript - Placed at the end of the document so the pages load faster 
+	================================================== -->
+
     <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <!-- script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script -->
     <script src="static/javascripts/bootstrap.min.js"></script>
     <script src="static/javascripts/application.js"></script>
     <script src="static/javascripts/bootswatch.js"></script>	
+    <script src="static/javascripts/jquery.isotope.min.js"></script>	
+    <script src="static/javascripts/jquery.touchSwipe.js"></script>	
+    <script src="static/javascripts/jquery.hotkeys.min.js" charset='utf-8'></script>	
+    <script src="static/javascripts/functions.js"></script>	
 
-  </body>
+    </body>
 </html>
